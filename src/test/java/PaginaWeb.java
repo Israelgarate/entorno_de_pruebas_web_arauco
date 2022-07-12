@@ -30,9 +30,9 @@ public class PaginaWeb {
         WebElement barraTextoGoogle = driver.findElement(By.name("q"));
         barraTextoGoogle.sendKeys("TSOFT");
         barraTextoGoogle.submit();
-
-        WebElement linkSitioTsoft = driver.findElement(By.xpath("//h3[contains(text(),'HOME')]"));
-        linkSitioTsoft.click();
+        By result = By.xpath("//h3[contains(text(),'HOME')]");
+        WebElement link = driver.findElement(result);
+        link.click();
         String tituloPaginaTsoft = driver.getTitle();
         System.out.println(tituloPaginaTsoft);
         driver.close();
