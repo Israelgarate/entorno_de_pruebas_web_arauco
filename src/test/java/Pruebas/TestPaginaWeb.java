@@ -22,6 +22,7 @@ public class TestPaginaWeb {
         driver = wdm.create();
 //        driver.manage().deleteAllCookies();
 //      driver.manage().window().maximize();
+         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
   @Test
   public void Test1() {
@@ -29,7 +30,7 @@ public class TestPaginaWeb {
 
 
         //funciones configuracion -> funciones internas
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+
 
         //funciones de navegacion -> funciones Externas
         driver.get("https://www.google.com");
