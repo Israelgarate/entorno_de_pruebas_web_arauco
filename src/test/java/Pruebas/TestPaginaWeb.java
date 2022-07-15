@@ -1,18 +1,40 @@
 package Pruebas;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import static org.junit.Assert.*;
+
 import java.time.Duration;
+
+import static io.github.bonigarcia.seljup.BrowserType.CHROME;
+import static org.assertj.core.api.Assertions.assertThat;
+
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.openqa.selenium.WebDriver;
+
+import io.github.bonigarcia.seljup.DockerBrowser;
+import io.github.bonigarcia.seljup.SeleniumJupiter;
+
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.openqa.selenium.WebDriver;
+
+import io.github.bonigarcia.seljup.DockerBrowser;
+import io.github.bonigarcia.seljup.SeleniumJupiter;
+
 
 
 public class TestPaginaWeb {
-    static WebDriver driver;
+
+    @Test
+    void testChrome(@DockerBrowser(type = CHROME) WebDriver driver) {
+        driver.get("https://bonigarcia.dev/selenium-webdriver-java/");
+        assertThat(driver.getTitle()).contains("Selenium WebDriver");
+    }
+
+  /*  static WebDriver driver;
 
     static WebDriverManager wdm = WebDriverManager.chromedriver().browserInDocker();
 
@@ -51,5 +73,5 @@ public class TestPaginaWeb {
 
         wdm.quit();
 
-    }
+    }*/
 }
