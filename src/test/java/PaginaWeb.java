@@ -11,17 +11,18 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import java.time.Duration;
 
 public class PaginaWeb {
-    WebDriver driver;
+    static WebDriver driver;
+
+    static WebDriverManager wdm = WebDriverManager.chromedriver().browserInDocker();
 
     @BeforeClass
     public static void init(){
-        WebDriverManager.chromedriver().setup();
+        driver = wdm.create();
     }
 
     @Before
     public void setUp(){
         //preparacion de Driver = Navegador
-        driver = new ChromeDriver(); //Chrome -> navegador
         driver.manage().deleteAllCookies();
         driver.manage().window().maximize();
     }
@@ -49,8 +50,8 @@ public class PaginaWeb {
     }
     @After
     public void close(){
-        if(driver != null){
-            driver.quit();
-        }
+
+        wdm.quit();
+
     }
 }
