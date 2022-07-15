@@ -22,7 +22,7 @@ public class TestPaginaWeb {
         driver = wdm.create();
 //        driver.manage().deleteAllCookies();
 //      driver.manage().window().maximize();
-         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        // driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
   @Test
   public void Test1() {
