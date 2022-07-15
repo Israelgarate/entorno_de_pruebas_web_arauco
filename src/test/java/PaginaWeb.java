@@ -1,6 +1,7 @@
 
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -26,6 +27,7 @@ public class PaginaWeb {
         //funciones de navegacion -> funciones Externas
         driver.get("https://www.google.com");
         String tituloPagina = driver.getTitle(); // "Google"
+        Assert.assertEquals("Google", tituloPagina);
         //escribir en el tag input con nombre q
         WebElement barraTextoGoogle = driver.findElement(By.name("q"));
         barraTextoGoogle.sendKeys("TSOFT");
