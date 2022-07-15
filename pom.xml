@@ -4,6 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+
     <groupId>org.example</groupId>
     <artifactId>entorno_de_pruebas_web</artifactId>
     <version>1.0-SNAPSHOT</version>
@@ -47,6 +48,13 @@
             <version>3.11.1</version>
             <scope>test</scope>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.jacoco/jacoco-maven-plugin -->
+        <dependency>
+            <groupId>org.jacoco</groupId>
+            <artifactId>jacoco-maven-plugin</artifactId>
+            <version>0.8.8</version>
+        </dependency>
+
     </dependencies>
 
     <properties>
@@ -65,8 +73,29 @@
                     <testFailureIgnore>true</testFailureIgnore>
                 </configuration>
             </plugin>
-            <!--.... other plugins -->
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>0.8.8</version>
+            </plugin>
         </plugins>
     </build>
 
+    <reporting>
+        <plugins>
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <reportSets>
+                    <reportSet>
+                        <reports>
+                            <report>report</report>
+                        </reports>
+                    </reportSet>
+                </reportSets>
+            </plugin>
+        </plugins>
+    </reporting>
+
 </project>
+
