@@ -15,14 +15,10 @@ public class PaginaWeb {
 
     static WebDriverManager wdm = WebDriverManager.chromedriver().browserInDocker();
 
-    @BeforeClass
-    public static void init(){
-        driver = wdm.create();
-    }
 
     @Before
     public void setUp(){
-        //preparacion de Driver = Navegador
+        driver = wdm.create();
         driver.manage().deleteAllCookies();
         driver.manage().window().maximize();
     }
