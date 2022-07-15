@@ -1,17 +1,15 @@
 package Pruebas;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-
-
+import static org.junit.Assert.*;
 import java.time.Duration;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TestPaginaWeb {
     static WebDriver driver;
@@ -19,7 +17,7 @@ public class TestPaginaWeb {
     static WebDriverManager wdm = WebDriverManager.chromedriver().browserInDocker();
 
 
-    @BeforeEach
+    @Before
     public void setUp(){
         driver = wdm.create();
 //        driver.manage().deleteAllCookies();
@@ -47,7 +45,7 @@ public class TestPaginaWeb {
         String tituloPaginaTsoft = driver.getTitle();
         driver.close();
     }
-    @AfterEach
+    @After
     public void close(){
 
         wdm.quit();
