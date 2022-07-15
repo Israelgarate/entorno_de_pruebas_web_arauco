@@ -1,22 +1,25 @@
-
+package Pruebas;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.junit.*;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 
 import java.time.Duration;
 
-public class PaginaWeb {
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+public class TestPaginaWeb {
     static WebDriver driver;
 
     static WebDriverManager wdm = WebDriverManager.chromedriver().browserInDocker();
 
 
-    @Before
+    @BeforeEach
     public void setUp(){
         driver = wdm.create();
 //        driver.manage().deleteAllCookies();
@@ -33,7 +36,7 @@ public class PaginaWeb {
         //funciones de navegacion -> funciones Externas
         driver.get("https://www.google.com");
         String tituloPagina = driver.getTitle(); // "Google"
-        Assert.assertEquals("hola", tituloPagina);
+        assertEquals("hola", tituloPagina);
         //escribir en el tag input con nombre q
         WebElement barraTextoGoogle = driver.findElement(By.name("q"));
         barraTextoGoogle.sendKeys("TSOFT");
@@ -44,7 +47,7 @@ public class PaginaWeb {
         String tituloPaginaTsoft = driver.getTitle();
         driver.close();
     }
-    @After
+    @AfterEach
     public void close(){
 
         wdm.quit();
