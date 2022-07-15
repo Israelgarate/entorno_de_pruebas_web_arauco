@@ -19,8 +19,8 @@ public class PaginaWeb {
     @Before
     public void setUp(){
         driver = wdm.create();
-        driver.manage().deleteAllCookies();
-        driver.manage().window().maximize();
+//        driver.manage().deleteAllCookies();
+//      driver.manage().window().maximize();
     }
   @Test
   public void Test1() {
