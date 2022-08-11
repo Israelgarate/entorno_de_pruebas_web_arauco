@@ -67,9 +67,16 @@
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <sonar.coverage.jacoco.xmlReportPaths>
-            /target/site/jacoco-aggregate/jacoco.xml
-        </sonar.coverage.jacoco.xmlReportPaths>
+        <itCoverageAgent></itCoverageAgent>
+        <sonar.language>java</sonar.language>
+        <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
+        <sonar.exclusions>**/pom.xml</sonar.exclusions>
+        <sonar.scm.provider>git</sonar.scm.provider>
+        <sonar.log.level>TRACE</sonar.log.level>
+        <sonar.verbose>true</sonar.verbose>
+        <sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
+
+        <sonar.coverage.jacoco.xmlReportPaths>/target/site/jacoco/jacoco.xml,/test-aggregate/target/site/jacoco-aggregate/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
     </properties>
 
 
